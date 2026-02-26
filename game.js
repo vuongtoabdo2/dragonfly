@@ -1006,14 +1006,12 @@ const showLeaderboardBtn = document.getElementById('show-leaderboard-btn');
 const closeLeaderboardBtn = document.getElementById('close-leaderboard-btn');
 
 showLeaderboardBtn.addEventListener('click', () => {
-    leaderboardModal.classList.remove('hidden');
     leaderboardModal.classList.add('active');
     fetchLeaderboard();
 });
 
 closeLeaderboardBtn.addEventListener('click', () => {
     leaderboardModal.classList.remove('active');
-    leaderboardModal.classList.add('hidden');
 });
 
 // Initial load
