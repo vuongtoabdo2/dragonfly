@@ -202,3 +202,34 @@ p {
 .small-btn:hover {
     background-color: #f75564;
 }
+
+/* Modal Overlay */
+.fullscreen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    pointer-events: auto;
+    /* Important so clicks register */
+    z-index: 1000;
+}
+
+.fullscreen-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-overlay.hidden {
+    display: none;
+    /* Fallback if transition isn't paramount or tightly toggled */
+}
