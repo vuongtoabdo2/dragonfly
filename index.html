@@ -19,15 +19,34 @@
 
             <!-- Start Screen -->
             <div id="start-screen" class="screen active">
-                <h1>DRAGON SHOOTER</h1>
-                <div class="input-group">
-                    <input type="text" id="player-name-input" placeholder="Enter Your Name" maxlength="15">
+                <div id="start-menu-content">
+                    <h1>DRAGON SHOOTER</h1>
+                    <div class="input-group">
+                        <input type="text" id="player-name-input" placeholder="Enter Your Name" maxlength="15">
+                    </div>
+                    <p>Use W, A, S, D or Arrow Keys to Move</p>
+                    <p>Avoid Black Clouds & Evil Dragons!</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                        <button id="start-btn" class="pixel-btn">START GAME</button>
+                        <button id="show-leaderboard-btn" class="pixel-btn small-btn"
+                            style="background-color: #3b82f6;">LEADERBOARD</button>
+                    </div>
                 </div>
-                <p>Use W, A, S, D or Arrow Keys to Move</p>
-                <p>Avoid Black Clouds & Evil Dragons!</p>
-                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
-                    <button id="start-btn" class="pixel-btn">START GAME</button>
-                    <button id="show-leaderboard-btn" class="pixel-btn small-btn">LEADERBOARD</button>
+
+                <!-- Embedded Leaderboard View -->
+                <div id="leaderboard-view"
+                    style="display: none; flex-direction: column; align-items: center; width: 100%;">
+                    <h1 class="game-title" style="color: #3b82f6; font-size: 30px; margin-bottom: 10px;">HALL OF FAME
+                    </h1>
+                    <div
+                        style="background: rgba(0,0,0,0.85); padding: 25px; border: 3px solid #3b82f6; border-radius: 8px; width: 85%; max-height: 50vh; overflow-y: auto; margin-bottom: 20px; box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);">
+                        <ul id="main-leaderboard-list"
+                            style="list-style: none; padding: 0; font-size: 14px; line-height: 2.2; text-align: left; margin: 0;">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                    <button id="close-leaderboard-btn" class="pixel-btn small-btn"
+                        style="background-color: var(--secondary-color);">BACK TO MENU</button>
                 </div>
             </div>
 
@@ -37,9 +56,10 @@
                 <p id="final-score">Score: 0</p>
                 <button id="restart-btn" class="pixel-btn">PLAY AGAIN</button>
                 <div id="leaderboard-section"
-                    style="margin-top: 20px; text-align: left; background: rgba(0,0,0,0.7); padding: 10px; border: 2px solid white; border-radius: 5px; width: 80%; display: none;">
-                    <h3 style="text-align: center; color: var(--primary-color);">TOP 5 GLOBAL</h3>
-                    <ul id="leaderboard-list" style="list-style: none; padding: 0; font-size: 12px; line-height: 1.8;">
+                    style="margin-top: 20px; text-align: left; background: rgba(0,0,0,0.85); padding: 15px; border: 2px solid #3b82f6; border-radius: 5px; width: 80%; display: none; box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);">
+                    <h3 style="text-align: center; color: #3b82f6; margin-top: 0;">TOP 5 GLOBAL</h3>
+                    <ul id="leaderboard-list"
+                        style="list-style: none; padding: 0; font-size: 12px; line-height: 1.8; margin-bottom: 0;">
                         <li>Loading...</li>
                     </ul>
                 </div>
@@ -59,29 +79,14 @@
                         <span id="score-text" style="font-size: 0.8rem;">SCORE: 0</span>
                     </div>
                 </div>
-            </div>
-            <div class="hud-right" style="position: absolute; right: 20px; top: 15px;">
-                <button id="surrender-btn" class="pixel-btn small-btn"
-                    style="margin: 0; padding: 5px 10px; font-size: 0.6rem;">SURRENDER</button>
+                <div class="hud-right" style="position: absolute; right: 20px; top: 15px;">
+                    <button id="surrender-btn" class="pixel-btn small-btn"
+                        style="margin: 0; padding: 5px 10px; font-size: 0.6rem;">SURRENDER</button>
+                </div>
             </div>
         </div>
 
-        <!-- Leaderboard Modal (Main Menu) -->
-        <div id="leaderboard-modal" class="screen" style="z-index: 9999; background-color: rgba(0, 0, 0, 0.95);">
-            <h1 class="game-title" style="color: var(--primary-color); font-size: 30px;">LEADERBOARD</h1>
-            <div
-                style="background: rgba(0,0,0,0.8); padding: 20px; border: 2px solid white; border-radius: 5px; width: 80%; margin-bottom: 20px;">
-                <ul id="main-leaderboard-list"
-                    style="list-style: none; padding: 0; font-size: 14px; line-height: 2; text-align: left;">
-                    <li>Loading...</li>
-                </ul>
-            </div>
-            <button id="close-leaderboard-btn" class="pixel-btn small-btn">BACK</button>
-        </div>
-
     </div>
-    </div>
-
     <script src="game.js"></script>
 </body>
 

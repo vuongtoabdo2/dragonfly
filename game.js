@@ -929,9 +929,11 @@ function startGame() {
 
     startScreen.classList.remove('active');
     gameOverScreen.classList.remove('active');
-    leaderboardModal.classList.remove('active');
-    leaderboardModal.classList.add('hidden');
     hudTop.classList.remove('hidden');
+
+    // Reset start screen view just in case
+    document.getElementById('start-menu-content').style.display = 'block';
+    document.getElementById('leaderboard-view').style.display = 'none';
 
     initGame();
     gameState.active = true;
@@ -1001,17 +1003,20 @@ async function fetchLeaderboard() {
 }
 
 // --- Leaderboard Integration ---
-const leaderboardModal = document.getElementById('leaderboard-modal');
+const startMenuContent = document.getElementById('start-menu-content');
+const leaderboardView = document.getElementById('leaderboard-view');
 const showLeaderboardBtn = document.getElementById('show-leaderboard-btn');
 const closeLeaderboardBtn = document.getElementById('close-leaderboard-btn');
 
 showLeaderboardBtn.addEventListener('click', () => {
-    leaderboardModal.classList.add('active');
+    startMenuContent.style.display = 'none';
+    leaderboardView.style.display = 'flex';
     fetchLeaderboard();
 });
 
 closeLeaderboardBtn.addEventListener('click', () => {
-    leaderboardModal.classList.remove('active');
+    leaderboardView.style.display = 'none';
+    startMenuContent.style.display = 'block';
 });
 
 // Initial load
