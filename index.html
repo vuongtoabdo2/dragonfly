@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Dragon Shooter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- The Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- UI Overlays -->
+        <div id="ui-layer">
+
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <h1>DRAGON SHOOTER</h1>
+                <div class="input-group">
+                    <input type="text" id="player-name-input" placeholder="Enter Your Name" maxlength="15">
+                </div>
+                <p>Use W, A, S, D or Arrow Keys to Move</p>
+                <p>Avoid Black Clouds & Evil Dragons!</p>
+                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                    <button id="start-btn" class="pixel-btn">START GAME</button>
+                    <button id="show-leaderboard-btn" class="pixel-btn small-btn">LEADERBOARD</button>
+                </div>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="game-over-screen" class="screen">
+                <h1 class="red-text">GAME OVER</h1>
+                <p id="final-score">Score: 0</p>
+                <button id="restart-btn" class="pixel-btn">PLAY AGAIN</button>
+                <div id="leaderboard-section"
+                    style="margin-top: 20px; text-align: left; background: rgba(0,0,0,0.7); padding: 10px; border: 2px solid white; border-radius: 5px; width: 80%; display: none;">
+                    <h3 style="text-align: center; color: var(--primary-color);">TOP 5 GLOBAL</h3>
+                    <ul id="leaderboard-list" style="list-style: none; padding: 0; font-size: 12px; line-height: 1.8;">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HUD (Heads Up Display) -->
+            <div id="hud-top" class="hidden">
+                <div class="hud-left" style="display: flex; align-items: center; gap: 15px;">
+                    <span id="hp-icons" style="display: flex;">
+                        <img src="heart.png" class="hp-icon">
+                        <img src="heart.png" class="hp-icon">
+                        <img src="heart.png" class="hp-icon">
+                    </span>
+                    <div style="display: flex; flex-direction: column; gap: 5px;">
+                        <span id="player-name-display"
+                            style="color: var(--primary-color); font-size: 0.8rem;">PLAYER</span>
+                        <span id="score-text" style="font-size: 0.8rem;">SCORE: 0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hud-right" style="position: absolute; right: 20px; top: 15px;">
+                <button id="surrender-btn" class="pixel-btn small-btn"
+                    style="margin: 0; padding: 5px 10px; font-size: 0.6rem;">SURRENDER</button>
+            </div>
+        </div>
+
+        <!-- Leaderboard Modal (Main Menu) -->
+        <div id="leaderboard-modal" class="hidden fullscreen-overlay">
+            <h1 class="game-title" style="color: var(--primary-color); font-size: 30px;">LEADERBOARD</h1>
+            <div
+                style="background: rgba(0,0,0,0.8); padding: 20px; border: 2px solid white; border-radius: 5px; width: 80%; margin-bottom: 20px;">
+                <ul id="main-leaderboard-list"
+                    style="list-style: none; padding: 0; font-size: 14px; line-height: 2; text-align: left;">
+                    <li>Loading...</li>
+                </ul>
+            </div>
+            <button id="close-leaderboard-btn" class="pixel-btn small-btn">BACK</button>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
